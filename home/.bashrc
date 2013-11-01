@@ -109,3 +109,4 @@ fi
 . ~/.bash_prompt
 
 alias homeshick="source $HOME/.homesick/repos/homeshick/bin/homeshick.sh"
+homeshick --quiet refresh
