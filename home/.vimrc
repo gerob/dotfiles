@@ -1,83 +1,45 @@
-" Beginners .vimrc
-" v0.1 2012-10-22 Philip Thrasher
-"
-" Important things for beginners:
-" * Start out small... Don't jam your vimrc full of things you're not ready to
-"   immediately use.
-" * Read other people's vimrc's.
-" * Use a plugin manager for christ's sake! (I highly recommend vundle)
-" * Spend time configuring your editor... It's important. Its the tool you
-"   spend 8 hours a day crafting your reputation.
-" * remap stupid things to new keys that make you more efficient.
-" * Don't listen to the haters that complain about using non-default
-"   key-bindings. Their argument is weak. I spend most of my time in the editor
-"   on my computer, not others, so I don't care if customizing vim means I'll
-"   have a harder time using remote vim.
-"
-" Below I've left some suggestions of good default settings to have in a bare
-" minimal vimrc. You only what you want to use, and nothing more. I've heavily
-" commented each, and these are what I consider bare necessities, my workflow
-" absolutely depends on these things.
-"
-" If you have any questions, email me at pthrash@me.com
+" Gerob Kimball 2013 .vimrc
+" Based on a .vimrc by Philip Thrasher
 
 " Setup Vundle:
 " For this to work, you must install the vundle plugin manually.
 " https://github.com/gmarik/vundle
-" To install vundle, copy all the files from the repo into your respective
-" folders within ~/.vim
+
 set nocompatible " Fuck VI... That's for grandpas.
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Vundle let's you specify a plugin in a number of formats, but my favorite
-" allows you to grab plugins straight off of github, just specify the bundle
+" =======================Vim Plugins===========================================
+" Vundle let's you grab plugins straight off of github, just specify the bundle
 " in the following format:
 " Bundle 'githubUsername/repoName'
 
 " Let vundle manage itself:
 Bundle 'gmarik/vundle'
-
 " Fuzzy finder -- absolutely must have.
 Bundle 'kien/ctrlp.vim'
-
 " Support for easily toggling comments.
 Bundle 'tpope/vim-commentary'
-
 " NERDTree - Improved File Explorer
 Bundle 'scrooloose/nerdtree'
-
 " Proper JSON filetype detection, and support.
 Bundle 'leshill/vim-json'
-
-" vim already has syntax support for javascript, but the indent support is
-" horrid. This fixes that.
+" Javascript indentation is horrid. This fixes that.
 Bundle 'pangloss/vim-javascript'
-
 " vim indents HTML very poorly on it's own. This fixes a lot of that.
 Bundle 'indenthtml.vim'
-
-" I write markdown a lot. This is a good syntax.
-" Bundle 'tpope/vim-markdown'
-
-" LessCSS -- I use this every day.
-Bundle 'groenewege/vim-less'
-
 " My color scheme
-Bundle 'baskerville/bubblegum'
 Bundle 'vim-scripts/xoria256.vim'
-
 " Git powered by Vim
 Bundle 'tpope/vim-fugitive'
-
 " Status bar
 Bundle 'bling/vim-airline'
-
-" Emmet auto-completion
+" Emmet auto-completion for HTML
 Bundle 'mattn/emmet-vim'
 
+" ==========================Vim Settings=======================================
 " We have to turn this stuff back on if we want all of our features.
 filetype plugin indent on " Filetype auto-detection
 syntax on " Syntax highlighting
@@ -90,6 +52,8 @@ set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " Match indents on new lines.
 set smartindent " Intellegently dedent / indent new lines based on rules.
+set nu " Set line numbers
+set mouse=nicr " Use the mouse for stuff but hold alt to select 
 
 " We have VCS -- we don't need this stuff.
 set nobackup " We have vcs, we don't need backups.
@@ -111,10 +75,10 @@ set gdefault " use the `g` flag by default.
 " allow the cursor to go anywhere in visual block mode.
 set virtualedit+=block
 
+" =========================Custom Mappings=====================================
 " leader is a key that allows you to have your own "namespace" of keybindings.
 " You'll see it a lot below as <leader>
 let mapleader = ","
-
 
 " So we don't have to press shift when we want to get into command mode.
 nnoremap ; :
@@ -149,29 +113,23 @@ nnoremap <leader><leader> <c-^>
 noremap j gj
 noremap k gk
 
-" Plugin settings:
+" ========================Plugin settings==================================
 " Below are some 'sane' (IMHO) defaults for a couple of the above plugins I
 " referenced.
 
 " Map the key for toggling comments with vim-commentary
 nnoremap <leader>c <Plug>CommentaryLine
 
-" Remap ctrlp to ctrl-t -- map it however you like, or stick with the
-" defaults. Additionally, in my OS, I remap caps lock to control. I never use
-" caps lock. This is highly recommended.
+" Toggle NERDTree
+map <leader>nt :NERDTreeToggle<CR>
+let g:NERDTreeDirArrows=0
+
+" Remap ctrlp to ctrl-t - consider remaping Caps Lock to Ctrl
 let g:ctrlp_map = '<c-t>'
 
 " Let ctrlp have up to 30 results.
 let g:ctrlp_max_height = 30
 
-
-" Finally the color scheme. Choose whichever you want from the list in the
-" link above (back up where we included the bundle of a ton of themes.)
+" Finally the color scheme. 
 colorscheme xoria256
 
-map <leader>nt :NERDTreeToggle<CR>
-
-let g:NERDTreeDirArrows=0
-set nu
-
-set mouse=nicr
