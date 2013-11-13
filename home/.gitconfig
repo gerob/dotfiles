@@ -11,7 +11,7 @@
 	ds = diff --stat
 	lp = log -p
 	graph = log --oneline --decorate --graph
-        hist = log --stat --abbrev-commit
+    hist = log --stat --abbrev-commit
 	ll = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	who = !echo \"== Commits by Author:\\n`git shortlog -s -n`\\n\"
 	m = merge --no-ff

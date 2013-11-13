@@ -38,6 +38,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 " Emmet auto-completion for HTML
 Bundle 'mattn/emmet-vim'
+" Show git changes in the gutter
+Bundle 'airblade/vim-gitgutter'
 
 " ==========================Vim Settings=======================================
 " We have to turn this stuff back on if we want all of our features.
@@ -85,7 +87,7 @@ nnoremap ; :
 vnoremap ; :
 
 " So we don't have to reach for escape to leave insert mode.
-inoremap jf <esc>
+inoremap jj <esc>
 
 " create new vsplit, and switch to it.
 noremap <leader>v <C-w>v
@@ -121,7 +123,7 @@ noremap k gk
 nnoremap <leader>c <Plug>CommentaryLine
 
 " Toggle NERDTree
-map <leader>nt :NERDTreeToggle<CR>
+map <leader>m :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
 
 " Remap ctrlp to ctrl-t - consider remaping Caps Lock to Ctrl
