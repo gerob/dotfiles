@@ -8,6 +8,19 @@
 set nocompatible " Fuck VI... That's for grandpas.
 filetype off
 
+" Start AutoVundle
+" Setting up Vundle - the vim plugin bundler
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+" No Readme? No Vundle. Let's install it.
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let iCanHazVundle=0
+endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -38,6 +51,18 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 " Emmet auto-completion for HTML
 Bundle 'mattn/emmet-vim'
+" PHP Code checking
+
+
+" ========== ^^ Bundles Above Here ^^ ========================================
+if iCanHazVundle == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
+endif
+" Setting up Vundle - the vim plugin bundler
+" end AutoVundle
+
 
 " ==========================Vim Settings=======================================
 " We have to turn this stuff back on if we want all of our features.
@@ -85,7 +110,7 @@ nnoremap ; :
 vnoremap ; :
 
 " So we don't have to reach for escape to leave insert mode.
-inoremap jf <esc>
+inoremap jj <esc>
 
 " create new vsplit, and switch to it.
 noremap <leader>v <C-w>v
@@ -121,7 +146,7 @@ noremap k gk
 nnoremap <leader>c <Plug>CommentaryLine
 
 " Toggle NERDTree
-map <leader>nt :NERDTreeToggle<CR>
+map <leader>m :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
 
 " Remap ctrlp to ctrl-t - consider remaping Caps Lock to Ctrl
