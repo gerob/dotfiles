@@ -51,6 +51,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 " Emmet auto-completion for HTML
 Bundle 'mattn/emmet-vim'
+" Show git changes in the gutter
+Bundle 'airblade/vim-gitgutter'
 " PHP Code checking
 
 

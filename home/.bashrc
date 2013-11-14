@@ -108,5 +108,6 @@ fi
 # Run twolfson/sexy-bash-prompt
 . ~/.bash_prompt
 
-alias homeshick="source $HOME/.homesick/repos/homeshick/bin/homeshick.sh"
+source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
