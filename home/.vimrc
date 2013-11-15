@@ -50,9 +50,12 @@ Bundle 'mattn/emmet-vim'
 " Show git changes in the gutter
 Bundle 'airblade/vim-gitgutter' 
 " PHP Code checking
-Bundle 'joonty/phpqa' 
+Bundle 'joonty/vim-phpqa' 
 " Tab completion for Vim
 Bundle 'ervandew/supertab' 
+" Twig highlighting
+Bundle 'estin/htmljinja'
+au BufRead,BufNewFile *.twig set filetype=htmljinja
 
 
 " ========== ^^ Bundles Above Here ^^ ========================================
