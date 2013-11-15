@@ -1,12 +1,21 @@
 " Gerob Kimball 2013 .vimrc
 " Based on a .vimrc by Philip Thrasher
 
-" Setup Vundle:
-" For this to work, you must install the vundle plugin manually.
-" https://github.com/gmarik/vundle
-
 set nocompatible " Fuck VI... That's for grandpas.
 filetype off
+
+" Start AutoVundle
+" Setting up Vundle - the vim plugin bundler
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+" No Readme? No Vundle. Let's install it.
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let iCanHazVundle=0
+endif
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -17,32 +26,45 @@ call vundle#rc()
 " Bundle 'githubUsername/repoName'
 
 " Let vundle manage itself:
-Bundle 'gmarik/vundle'
-" Fuzzy finder -- absolutely must have.
-Bundle 'kien/ctrlp.vim'
-" Support for easily toggling comments.
-Bundle 'tpope/vim-commentary'
+Bundle 'gmarik/vundle' 
+" Fuzzy finder -- absolutely must have
+Bundle 'kien/ctrlp.vim' 
+" Support for easily toggling comments
+Bundle 'tpope/vim-commentary' 
 " NERDTree - Improved File Explorer
-Bundle 'scrooloose/nerdtree'
-" Proper JSON filetype detection, and support.
-Bundle 'leshill/vim-json'
-" Javascript indentation is horrid. This fixes that.
-Bundle 'pangloss/vim-javascript'
-" vim indents HTML very poorly on it's own. This fixes a lot of that.
-Bundle 'indenthtml.vim'
+Bundle 'scrooloose/nerdtree' 
+" Proper JSON filetype detection, and support
+Bundle 'leshill/vim-json' 
+" Javascript indentation fixes
+Bundle 'pangloss/vim-javascript' 
+" HTML fixes
+Bundle 'indenthtml.vim' 
 " My color scheme
-Bundle 'vim-scripts/xoria256.vim'
+Bundle 'vim-scripts/xoria256.vim' 
 " Git powered by Vim
-Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive' 
 " Status bar
-Bundle 'bling/vim-airline'
+Bundle 'bling/vim-airline' 
 " Emmet auto-completion for HTML
-Bundle 'mattn/emmet-vim'
+Bundle 'mattn/emmet-vim' 
 " Show git changes in the gutter
-Bundle 'airblade/vim-gitgutter'
-" Twig syntax support via htmljinja
+Bundle 'airblade/vim-gitgutter' 
+" PHP Code checking
+Bundle 'joonty/vim-phpqa' 
+" Tab completion for Vim
+Bundle 'ervandew/supertab' 
+" Twig highlighting
 Bundle 'estin/htmljinja'
 
+
+" ========== ^^ Bundles Above Here ^^ ========================================
+if iCanHazVundle == 0
+   echo "Installing Bundles, please ignore key map error messages"
+   echo ""
+   :BundleInstall
+endif
+" Done setting up Vundle - the vim plugin bundler
+" end AutoVundle
 
 " ==========================Vim Settings=======================================
 " We have to turn this stuff back on if we want all of our features.
