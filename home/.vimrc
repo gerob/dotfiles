@@ -40,6 +40,9 @@ Bundle 'bling/vim-airline'
 Bundle 'mattn/emmet-vim'
 " Show git changes in the gutter
 Bundle 'airblade/vim-gitgutter'
+" Twig syntax support via htmljinja
+Bundle 'estin/htmljinja'
+
 
 " ==========================Vim Settings=======================================
 " We have to turn this stuff back on if we want all of our features.
@@ -131,6 +134,9 @@ let g:ctrlp_map = '<c-t>'
 
 " Let ctrlp have up to 30 results.
 let g:ctrlp_max_height = 30
+
+" Make vim use htmljinja for .twig extenxions
+au BufRead,BufNewFile *.twig set filetype=htmljinja
 
 " Finally the color scheme. 
 colorscheme xoria256
