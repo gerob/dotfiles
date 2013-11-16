@@ -55,6 +55,9 @@ Bundle 'ervandew/supertab'
 Bundle 'Valloric/YouCompleteMe'
 " Syntax highlighting that ties in with the above
 Bundle 'scrooloose/syntastic'
+" Twig highlighting
+Bundle 'estin/htmljinja'
+
 
 " ========== ^^ Bundles Above Here ^^ ========================================
 if iCanHazVundle == 0
@@ -158,6 +161,9 @@ let g:ctrlp_max_height = 30
 
 " Syntax highlighting for PHP
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+
+" Make vim use htmljinja for .twig extenxions
+au BufRead,BufNewFile *.twig set filetype=htmljinja
 
 " Finally the color scheme. 
 colorscheme xoria256
