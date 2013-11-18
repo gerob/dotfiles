@@ -49,10 +49,12 @@ Bundle 'bling/vim-airline'
 Bundle 'mattn/emmet-vim' 
 " Show git changes in the gutter
 Bundle 'airblade/vim-gitgutter' 
-" PHP Code checking
-Bundle 'joonty/vim-phpqa' 
 " Tab completion for Vim
 Bundle 'ervandew/supertab' 
+" Auto-completion for many languages
+Bundle 'Valloric/YouCompleteMe'
+" Syntax highlighting that ties in with the above
+Bundle 'scrooloose/syntastic'
 " Twig highlighting
 Bundle 'estin/htmljinja'
 
@@ -161,6 +163,9 @@ let g:ctrlp_map = '<c-t>'
 
 " Let ctrlp have up to 30 results.
 let g:ctrlp_max_height = 30
+
+" Syntax highlighting for PHP
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
 " Make vim use htmljinja for .twig extenxions
 au BufRead,BufNewFile *.twig set filetype=htmljinja
