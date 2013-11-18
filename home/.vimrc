@@ -40,7 +40,7 @@ Bundle 'pangloss/vim-javascript'
 " HTML fixes
 Bundle 'indenthtml.vim' 
 " My color scheme
-Bundle 'vim-scripts/xoria256.vim' 
+Bundle 'baskerville/bubblegum' 
 " Git powered by Vim
 Bundle 'tpope/vim-fugitive' 
 " Status bar
@@ -81,7 +81,6 @@ set autoindent " Match indents on new lines.
 set smartindent " Intellegently dedent / indent new lines based on rules.
 set nu " Set line numbers
 set mouse=nicr " Use the mouse for stuff but hold alt to select 
-set encoding=utf-8
 
 " We have VCS -- we don't need this stuff.
 set nobackup " We have vcs, we don't need backups.
@@ -149,10 +148,6 @@ noremap k gk
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set laststatus=2
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
 
 " PHPQA Settings
 let g:phpqa_codesniffer_cmd='/home/gkimball/bin/PHPCS/scripts/phpcs'
@@ -176,7 +171,7 @@ let g:ctrlp_max_height = 30
 au BufRead,BufNewFile *.twig set filetype=htmljinja
 
 " Finally the color scheme. 
-colorscheme xoria256
+colorscheme bubblegum
 
 " Finally, finally reload .vimrc when we update it
 autocmd! bufwritepost .vimrc source %
