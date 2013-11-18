@@ -144,6 +144,11 @@ noremap k gk
 " Below are some 'sane' (IMHO) defaults for a couple of the above plugins I
 " referenced.
 
+" PHPQA Settings
+let g:phpqa_codesniffer_cmd='/home/gkimball/bin/PHPCS/scripts/phpcs'
+let g:phpqa_messdetector_autorun = 0
+let g:phpqa_codesniffer_args = "--standard=PSR2"
+
 " Map the key for toggling comments with vim-commentary
 nnoremap <leader>c <Plug>CommentaryLine
 
@@ -163,3 +168,5 @@ au BufRead,BufNewFile *.twig set filetype=htmljinja
 " Finally the color scheme. 
 colorscheme xoria256
 
+" Finally, finally reload .vimrc when we update it
+autocmd! bufwritepost .vimrc source %
