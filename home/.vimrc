@@ -40,7 +40,7 @@ Bundle 'pangloss/vim-javascript'
 " HTML fixes
 Bundle 'indenthtml.vim' 
 " My color scheme
-Bundle 'vim-scripts/xoria256.vim' 
+Bundle 'baskerville/bubblegum' 
 " Git powered by Vim
 Bundle 'tpope/vim-fugitive' 
 " Status bar
@@ -51,10 +51,8 @@ Bundle 'mattn/emmet-vim'
 Bundle 'airblade/vim-gitgutter' 
 " Tab completion for Vim
 Bundle 'ervandew/supertab' 
-" Auto-completion for many languages
-Bundle 'Valloric/YouCompleteMe'
-" Syntax highlighting that ties in with the above
-Bundle 'scrooloose/syntastic'
+" PHP Quality Assurance
+Bundle 'joonty/vim-phpqa'
 " Twig highlighting
 Bundle 'estin/htmljinja'
 
@@ -146,6 +144,16 @@ noremap k gk
 " Below are some 'sane' (IMHO) defaults for a couple of the above plugins I
 " referenced.
 
+" Airline status bar settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+" PHPQA Settings
+let g:phpqa_codesniffer_cmd='/home/gkimball/bin/PHPCS/scripts/phpcs'
+let g:phpqa_messdetector_autorun = 0
+let g:phpqa_codesniffer_args = "--standard=PSR2"
+
 " Map the key for toggling comments with vim-commentary
 nnoremap <leader>c <Plug>CommentaryLine
 
@@ -159,14 +167,11 @@ let g:ctrlp_map = '<c-t>'
 " Let ctrlp have up to 30 results.
 let g:ctrlp_max_height = 30
 
-" Syntax highlighting for PHP
-let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-
 " Make vim use htmljinja for .twig extenxions
 au BufRead,BufNewFile *.twig set filetype=htmljinja
 
 " Finally the color scheme. 
-colorscheme xoria256
+colorscheme bubblegum
 
 " What to ignore with CtrlP searches
 set wildignore+=*/vendor/**
@@ -191,4 +196,5 @@ function! Class()
 endfunction
 nmap ,1  :call Class()<cr>
 
-
+" Finally, finally reload .vimrc when we update it
+autocmd! bufwritepost .vimrc source %
