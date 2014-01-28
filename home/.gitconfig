@@ -15,6 +15,7 @@
 	ll = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	who = !echo \"== Commits by Author:\\n`git shortlog -s -n`\\n\"
 	m = merge --no-ff
+    report = "log --author=Gerob --since='8 hours ago' --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges"
 [core]
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	pager = less -r

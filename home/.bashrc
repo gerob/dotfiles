@@ -111,3 +111,5 @@ fi
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
+# search current directory, home directory, and projects folder
+export CDPATH=".:~:~/sites"
