@@ -175,5 +175,28 @@ au BufRead,BufNewFile *.twig set filetype=htmljinja
 " Finally the color scheme. 
 colorscheme bubblegum
 
+" What to ignore with CtrlP searches
+set wildignore+=*/vendor/**
+
+" ========================= Functions ======================================
+ 
+" Prepare a new PHP class
+function! Class()
+    let name = input('Class name? ')
+    let namespace = input('Any Namespace? ')
+ 
+    if strlen(namespace)
+        exec "normal! i<?php namespace " . namespace . ";\n\n" 
+    else
+        exec "normal! i<?php \n\n"
+    endif
+ 
+    " Open class
+    exec "normal! iclass " . name . "\n{\n"
+    
+    exec "normal! i    public function __construct()\n{\n\n}\n}"
+endfunction
+nmap ,1  :call Class()<cr>
+
 " Finally, finally reload .vimrc when we update it
 autocmd! bufwritepost .vimrc source %
