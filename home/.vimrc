@@ -81,6 +81,7 @@ set autoindent " Match indents on new lines.
 set smartindent " Intellegently dedent / indent new lines based on rules.
 set nu " Set line numbers
 set mouse=nicr " Use the mouse for stuff but hold alt to select 
+set ttimeoutlen=50
 
 " We have VCS -- we don't need this stuff.
 set nobackup " We have vcs, we don't need backups.
@@ -132,8 +133,8 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " Quick buffer switching - like cmd-tab'ing
 nnoremap <leader><leader> <c-^>
-nnoremap <leader>< :bp<cr>
-nnoremap <leader>> :bn<cr>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>b :bp<CR>
 
 " Visual line nav, not real line nav
 " If you wrap lines, vim by default won't let you move down one line to the
