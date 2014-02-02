@@ -48,7 +48,7 @@ Bundle 'bling/vim-airline'
 " Emmet auto-completion for HTML
 Bundle 'mattn/emmet-vim' 
 " Show git changes in the gutter
-Bundle 'airblade/vim-gitgutter' 
+" Bundle 'airblade/vim-gitgutter' 
 " Tab completion for Vim
 Bundle 'ervandew/supertab' 
 " PHP Quality Assurance
@@ -132,7 +132,8 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " Quick buffer switching - like cmd-tab'ing
 nnoremap <leader><leader> <c-^>
-
+nnoremap <leader>< :bp<cr>
+nnoremap <leader>> :bn<cr>
 
 " Visual line nav, not real line nav
 " If you wrap lines, vim by default won't let you move down one line to the
@@ -153,6 +154,7 @@ set laststatus=2
 let g:phpqa_codesniffer_cmd='/home/gkimball/bin/PHPCS/scripts/phpcs'
 let g:phpqa_messdetector_autorun = 0
 let g:phpqa_codesniffer_args = "--standard=PSR2"
+let g:phpqa_codesniffer_autorun = 0
 
 " Map the key for toggling comments with vim-commentary
 nnoremap <leader>c <Plug>CommentaryLine
