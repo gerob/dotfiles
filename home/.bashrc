@@ -113,3 +113,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # search current directory, home directory, and projects folder
 export CDPATH=".:~:~/sites"
+
+export PATH="$(brew --prefix php55)/bin:$PATH"

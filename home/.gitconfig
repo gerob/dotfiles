@@ -1,6 +1,6 @@
 [user]
 	name = Gerob Kimball
-	email = gkimball@parrotmarketing.com
+	email = gerobk@gmail.com
 [alias]
 	st = status
 	ci = commit
@@ -36,3 +36,8 @@
 	changed = green
 	untracked = cyan
 
+[push]
+	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
