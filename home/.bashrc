@@ -114,4 +114,16 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 # search current directory, home directory, and projects folder
 export CDPATH=".:~:~/sites"
 
-export PATH="$(brew --prefix php55)/bin:$PATH"
+# detect the current OS
+platform='unknown'
+unamestr=`uname`
+if [[ "unamestr" == 'Darwin' ]]; then
+    platform="osx"
+elif [[ "unamestr" == 'Linux' ]]; then
+    platform="linux"
+fi
+
+if [[ $platform == 'osx' ]]; then
+    export PATH="$(brew --prefix php55)/bin:$PATH"
+fi
+
