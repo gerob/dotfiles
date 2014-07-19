@@ -1,5 +1,19 @@
 # Directory Aliases
-alias la='ls -lsAh --group-directories-first'
+alias ..='cd ..;l'
+alias ...='cd ../../;l'
+alias ....='cd ../../../;l'
+alias ll='ls -lahGF'
+alias ls='ls -GF'
+alias l='ls -lGF'
+alias l.='ls -ld .*'
+alias path='echo -e ${PATH//:/\\n}'
+
+# Sublime Text
+alias subl='open -a "Sublime Text"'
+
+# Sudo Aliases
+alias edithosts='sudo vim /etc/hosts'
+alias editssh='sudo vim ~/.ssh/config'
 
 # Laravel Artisan 
 alias artisan='php artisan'
